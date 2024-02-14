@@ -11,7 +11,7 @@ import {
   NavbarMenu,
   NavbarMenuItem,
 } from "@nextui-org/react";
-import { Logo } from "../assets/images/logo";
+import { Logo } from "../assets/images/Logo";
 import { useRouter } from "next/navigation";
 
 const NavBar = () => {
