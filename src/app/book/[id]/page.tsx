@@ -3,10 +3,14 @@ import * as React from "react";
 import NavBar from "../../../components/NavBar";
 import useGetBookById from "../../../hooks/useGetBookById";
 import { Image } from "@nextui-org/react";
+import { IBook } from "../../../interfaces/book.interface";
 
 export default function Page({ params }: { params: { id: number } }) {
   console.log(params.id);
-  const { book, loading } = useGetBookById(params.id);
+  const { book, loading } = useGetBookById(params.id) as {
+    book: IBook | null;
+    loading: boolean;
+  };
   return (
     <>
       <NavBar />
