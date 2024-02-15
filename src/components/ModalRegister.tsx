@@ -35,7 +35,7 @@ const ModalRegister = () => {
       <Button onPress={onOpen} color="primary" className="w-full">
         Registrarse
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom-center">
         <ModalContent>
           {(onClose) => (
             <>
