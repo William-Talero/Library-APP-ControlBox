@@ -48,7 +48,7 @@ const ModalLogin = () => {
       >
         Login
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom-center">
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
         <ModalContent>
           {(onClose) => (
             <>

@@ -46,7 +46,7 @@ const ModalReview = (data: IModal) => {
       <Button onPress={onOpen} color="primary" className="mb-5 w-full">
         Crear Reseña
       </Button>
-      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="bottom-center">
+      <Modal isOpen={isOpen} onOpenChange={onOpenChange} placement="top-center">
         <ModalContent>
           {(onClose) => (
             <>
