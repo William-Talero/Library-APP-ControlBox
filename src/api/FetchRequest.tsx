@@ -86,9 +86,6 @@ export const PostApiRequestWithoutToken = async (url: string) => {
     let config = {
       method: "POST",
       headers: {
-        Authorization: `Basic ${btoa(
-          `${process.env.NEXT_PUBLIC_REACT_APP_API_USER}:${process.env.NEXT_PUBLIC_REACT_APP_API_PASSWORD}`
-        )}`,
         "Content-Type": "application/json",
       },
     };

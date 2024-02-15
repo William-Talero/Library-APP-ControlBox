@@ -11,6 +11,5 @@ export interface IReview {
 }
 
 export interface IReviewProps {
-  key: number;
   review: IReview;
 }

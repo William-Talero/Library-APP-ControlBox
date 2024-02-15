@@ -12,7 +12,7 @@ import { IReviewProps } from "../interfaces/review.interface";
 const Review = (data: IReviewProps) => {
   const { review } = data;
   return (
-    <Card className="w-full">
+    <Card className="w-full mb-2">
       <CardHeader className="justify-between">
         <div className="flex gap-5">
           <div className="flex flex-col gap-1 items-start justify-center">
