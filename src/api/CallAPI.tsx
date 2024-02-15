@@ -13,3 +13,9 @@ export const CallApiGetBookById = async (id: number) => {
   const data = await GetApiRequestWithoutToken(`${url}`);
   return data ? await data.json() : [];
 };
+
+export const CallApiGetReviewsByBook = async (id: number) => {
+  let url = `${process.env.NEXT_PUBLIC_API_ROUTE}${Configuration.GetReviewsByBook}?book_id=${id}`;
+  const data = await GetApiRequestWithoutToken(`${url}`);
+  return data ? await data.json() : [];
+};
