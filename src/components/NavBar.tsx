@@ -19,7 +19,7 @@ import { useAuth } from "../contexts/AuthContext";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { isAuthenticated, login, logout } = useAuth();
+  const { isAuthenticated, login, logout, user } = useAuth();
 
   const router = useRouter();
 
@@ -57,11 +57,16 @@ const NavBar = () => {
           </NavbarItem>
         )}
         {isAuthenticated && (
-          <NavbarItem className="hidden lg:flex">
-            <Link onClick={() => logout()} color="danger">
-              Log Out
-            </Link>
-          </NavbarItem>
+          <>
+            <NavbarItem className="hidden lg:flex text-sm">
+              {user?.username}
+            </NavbarItem>
+            <NavbarItem className="hidden lg:flex">
+              <Link onClick={() => logout()} color="danger">
+                Log Out
+              </Link>
+            </NavbarItem>
+          </>
         )}
       </NavbarContent>
       <NavbarMenu className="bg-black py-5">

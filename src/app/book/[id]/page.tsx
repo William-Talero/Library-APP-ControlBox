@@ -14,13 +14,13 @@ import { useAuth } from '../../../contexts/AuthContext';
 export default function Page({ params }: { params: { id: number } }) {
 
   const { isAuthenticated, login, logout } = useAuth();
+  const [state, setState] = React.useState(false);
 
   const { book, loading } = useGetBookById(params.id) as {
     book: IBook | null;
     loading: boolean;
   };
-  const { reviews } = useGetReviewsByBookId(params.id);
-  console.log(reviews);
+  const { reviews } = useGetReviewsByBookId(params.id, state);
   return (
     <>
       <NavBar />
@@ -55,7 +55,7 @@ export default function Page({ params }: { params: { id: number } }) {
                 <h1 className="text-3xl font-bold text-black mb-[2rem] my-2">
                   Reseñas
                 </h1>
-                {isAuthenticated && <ModalReview bookId={book.id} />}
+                {isAuthenticated && <ModalReview bookId={book.id} setState={setState}/>}
                 <div className="md:max-h-[21rem] w-full overflow-y-auto p-2">
                   {reviews.length > 0 ? (
                     reviews.map((review, index) => (

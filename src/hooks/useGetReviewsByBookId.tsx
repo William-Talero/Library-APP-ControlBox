@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { CallApiGetReviewsByBook } from "../api/CallAPI";
 
-const useGetReviewsByBookId = (id: number) => {
+const useGetReviewsByBookId = (id: number, state: boolean) => {
   const [reviews, setReviews] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -12,7 +12,7 @@ const useGetReviewsByBookId = (id: number) => {
       setLoading(false);
     };
     fetchData();
-  }, [id]);
+  }, [id, state]);
 
   return { reviews, loading };
 };

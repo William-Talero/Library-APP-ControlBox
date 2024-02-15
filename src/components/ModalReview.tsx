@@ -12,15 +12,18 @@ import {
   Link,
 } from "@nextui-org/react";
 import { CallApiCreateReview } from "../api/CallAPI";
+import { useAuth } from "../contexts/AuthContext";
 
 interface IModal {
   bookId: number;
+  setState: (state: boolean) => void;
 }
 
 const ModalReview = (data: IModal) => {
   const { isOpen, onOpen, onOpenChange } = useDisclosure();
+  const { user } = useAuth();
 
-  const { bookId } = data;
+  const { bookId, setState } = data;
 
   const [review, setReview] = useState("");
   const [stars, setStars] = useState("");
@@ -32,8 +35,9 @@ const ModalReview = (data: IModal) => {
       Number(stars),
       new Date().toLocaleDateString("es-ES"),
       bookId,
-      1
+      user !== null ? user.id : 1
     );
+    setState(true);
     onOpenChange();
   };
 

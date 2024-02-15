@@ -8,7 +8,6 @@ import { CircularProgress } from "@nextui-org/react";
 
 export default function Page() {
   const { books, loading } = useGetAllBooks();
-  console.log(books);
   return (
     <>
       <NavBar />
