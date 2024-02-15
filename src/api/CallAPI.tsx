@@ -38,3 +38,20 @@ export const CallApiCreateReview = async (
   const data = await PostApiRequestWithoutToken(`${url}`);
   return data ? await data.json() : [];
 };
+
+export const callApiValidateUser = async (user: string, password: string) => {
+  let url = `${process.env.NEXT_PUBLIC_API_ROUTE}${Configuration.ValidateUser}?username=${user}&password=${password}`;
+  const data = await GetApiRequestWithoutToken(`${url}`);
+  return data ? await data.json() : [];
+};
+
+export const callApiCreateUser = async (
+  username: string,
+  fullname: string,
+  email: string,
+  password: string
+) => {
+  let url = `${process.env.NEXT_PUBLIC_API_ROUTE}${Configuration.CreateUser}?username=${username}&fullname=${fullname}&email=${email}&password=${password}`;
+  const data = await PostApiRequestWithoutToken(`${url}`);
+  return data ? await data.json() : [];
+};

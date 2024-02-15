@@ -16,7 +16,7 @@ export default function Page() {
         {books.length > 0 ? (
           books.map((book: IBook) => <Book key={book.id} book={book} />)
         ) : (
-          <div className="h-[30rem] flex justify-center">
+          <div className="h-[30rem] flex justify-cente">
             <CircularProgress />
           </div>
         )}

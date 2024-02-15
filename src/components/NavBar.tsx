@@ -13,9 +13,14 @@ import {
 } from "@nextui-org/react";
 import { Logo } from "../assets/images/Logo";
 import { useRouter } from "next/navigation";
+import ModalLogin from "./ModalLogin";
+import ModalRegister from "./ModalRegister";
+import { useAuth } from "../contexts/AuthContext";
 
 const NavBar = () => {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const { isAuthenticated, login, logout } = useAuth();
+
   const router = useRouter();
 
   const menuItems = ["Profile", "Books", "Sign Out"];
@@ -41,14 +46,23 @@ const NavBar = () => {
         </NavbarItem>
       </NavbarContent>
       <NavbarContent justify="end">
-        <NavbarItem className="hidden lg:flex">
-          <Link href="#">Sign Up</Link>
-        </NavbarItem>
-        <NavbarItem>
-          <Button as={Link} color="primary" href="#" variant="flat">
-            Login
-          </Button>
-        </NavbarItem>
+        {!isAuthenticated && (
+          <NavbarItem className="hidden lg:flex">
+            <ModalRegister />
+          </NavbarItem>
+        )}
+        {!isAuthenticated && (
+          <NavbarItem>
+            <ModalLogin />
+          </NavbarItem>
+        )}
+        {isAuthenticated && (
+          <NavbarItem className="hidden lg:flex">
+            <Link onClick={() => logout()} color="danger">
+              Log Out
+            </Link>
+          </NavbarItem>
+        )}
       </NavbarContent>
       <NavbarMenu className="bg-black py-5">
         {menuItems.map((item, index) => (
