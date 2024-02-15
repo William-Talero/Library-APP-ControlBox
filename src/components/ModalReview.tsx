@@ -25,7 +25,7 @@ const ModalReview = (data: IModal) => {
   const [review, setReview] = useState("");
   const [stars, setStars] = useState("");
 
-  const onSubmit = async (e) => {
+  const onSubmit = async (e: any) => {
     e.preventDefault();
     await CallApiCreateReview(
       review,

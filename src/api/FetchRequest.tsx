@@ -17,6 +17,7 @@ export const GetApiRequestWithoutToken = async (url: string) => {
     let config = {
       method: "GET",
       headers: {},
+      next: { revalidate: 3600 },
     };
     return await fetch(url, config);
   } catch (error) {
@@ -88,6 +89,7 @@ export const PostApiRequestWithoutToken = async (url: string) => {
       headers: {
         "Content-Type": "application/json",
       },
+      next: { revalidate: 3600 },
     };
     const peticion = await fetch(url, config);
     return peticion;

@@ -35,7 +35,7 @@ const NavBar = () => {
 
       <NavbarContent className="hidden sm:flex gap-4" justify="center">
         <NavbarItem isActive>
-          <Link href="#" aria-current="page">
+          <Link onClick={() => router.push("/")} aria-current="page">
             Books
           </Link>
         </NavbarItem>
